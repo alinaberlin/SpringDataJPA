@@ -1,4 +1,4 @@
-package com.github.alinaberlin.payload.request;
+package com.github.alinaberlin.security.payload.request;
 
 public class SignupRequest {
 }
