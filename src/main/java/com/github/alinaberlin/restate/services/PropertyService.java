@@ -2,6 +2,7 @@ package com.github.alinaberlin.restate.services;
 
 
 import com.github.alinaberlin.restate.models.Property;
+import com.github.alinaberlin.restate.models.PropertyType;
 import com.github.alinaberlin.restate.repositories.PropertyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,10 @@ public class PropertyService {
     public boolean deleteProperty(long id){
         propertyRepository.deleteById(id);
         return true;
+    }
+    public List<Property> filter(PropertyType type, Double minArea, Double maxArea, Double minPrince, Double maxPrice){
+
+        return propertyRepository.filterProperties(type,minArea, maxArea, minPrince, maxPrice);
     }
 
 }

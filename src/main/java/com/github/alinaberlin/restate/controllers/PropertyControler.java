@@ -2,6 +2,7 @@ package com.github.alinaberlin.restate.controllers;
 
 
 import com.github.alinaberlin.restate.models.Property;
+import com.github.alinaberlin.restate.models.PropertyType;
 import com.github.alinaberlin.restate.services.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -23,6 +24,17 @@ public class PropertyControler {
         List<Property> properties = propertyService.getAllProperties();
         return new ResponseEntity<>(properties, HttpStatus.OK);
     }
+    @GetMapping("/filter")
+    public  ResponseEntity<List<Property>> filterProperty(@RequestParam PropertyType type,
+                                                          @RequestParam Double minArea,
+                                                          @RequestParam Double maxArea,
+                                                          @RequestParam Double minPrince,
+                                                          @RequestParam Double maxPrice){
+        List<Property> properties = propertyService.filter(type,minArea, maxArea, minPrince, maxPrice);
+        return new ResponseEntity<>(properties, HttpStatus.OK);
+
+    }
+
 
     public ResponseEntity<Property> getPropertyById(@PathVariable long id) {
         Property property = propertyService.getPropertyById(id);
