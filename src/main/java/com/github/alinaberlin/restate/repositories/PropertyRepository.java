@@ -14,16 +14,17 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
 
 
     // adding a search using @query annotation from https://www.baeldung.com/spring-data-jpa-null-parameters
-    @Query("from Property where type = :type and " +
-            "((:minArea is null or :maxArea is null) or area between :minArea and :maxArea) and " +
-            "((:minPrice is null or :maxPrice is null) or price between :minPrice and :maxPrice)")
-    List<Property> filterProperties(@Param("type") PropertyType type,
-                                    @Param("minArea") Double minArea,
-                                    @Param("maxArea") Double maxArea,
-                                    @Param("minPrice") Double minPrice,
-                                    @Param("maxPrice") Double maxPrice);
+    /*@Query(value = "from Property where type = :type and " +
+            "((:minArea is null or :maxArea is null) or (area between :minArea and :maxArea)) and " +
+            "((:minPrice is null or :maxPrice is null) or (price between :minPrice and :maxPrice))")
+    List<Property> findByTypeAndAreaBetweenAndPriceBetween(@Param("type") PropertyType type,
+                                                           @Param("minArea") Double minArea,
+                                                           @Param("maxArea") Double maxArea,
+                                                           @Param("minPrice") Double minPrice,
+                                                           @Param("maxPrice") Double maxPrice);*/
 
     List<Property> findByTypeAndAreaBetweenAndPriceBetween(PropertyType type, Double minArea, Double maxArea, Double minPrice, Double maxPrice);
 
-    List<Property> filterProperties(PropertyType type);
+
+
 }

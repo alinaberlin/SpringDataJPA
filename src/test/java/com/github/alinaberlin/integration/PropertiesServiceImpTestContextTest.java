@@ -22,7 +22,7 @@ public class PropertiesServiceImpTestContextTest {
     @Test
     public void shouldSaveProperty() {
         Property property = new Property();
-         property = propertyService.saveProperty(property);
+        propertyService.saveProperty(property);
 
     }
 
