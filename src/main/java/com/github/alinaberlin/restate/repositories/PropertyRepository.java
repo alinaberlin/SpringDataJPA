@@ -24,4 +24,6 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
                                     @Param("maxPrice") Double maxPrice);
 
     List<Property> findByTypeAndAreaBetweenAndPriceBetween(PropertyType type, Double minArea, Double maxArea, Double minPrice, Double maxPrice);
+
+    List<Property> filterProperties(PropertyType type);
 }

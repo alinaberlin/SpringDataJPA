@@ -4,11 +4,12 @@ package com.github.alinaberlin.restate.services;
 import com.github.alinaberlin.restate.models.Property;
 import com.github.alinaberlin.restate.models.PropertyType;
 import com.github.alinaberlin.restate.repositories.PropertyRepository;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
-
 
 @Service
 public class PropertyService {
